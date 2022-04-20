@@ -8,6 +8,10 @@
 
 [Knowledge](./Knowledge/README.md)
 
+[SRS](./Others/SRS.md)
+
+[SDS](./Others/SDS.md)
+
 ### Member
 
 #### 柏羽 / Elaina
