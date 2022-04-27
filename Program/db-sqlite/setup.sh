@@ -14,4 +14,5 @@ pip install --upgrade build
 python3 -m build
 ls -lah ./dist
 pip install ./dist/db-0.0.4-py3-none-any.whl
-# rm -r ./db.egg-info ./dist
+rm -r ./db.egg-info ./dist
+
