@@ -1,6 +1,7 @@
 import os
 import shutil
 import sqlite3
+from uuid import UUID
 
 from db.__config import DEVICE,MODEL,CALIBRATION
 con=sqlite3.connect(DEVICE)
@@ -34,6 +35,7 @@ def get(uuid:str,create:bool=False):
     # if uuid in device:
     #     return Device(uuid)
     if info:
+        UUID(uuid,version=4)
         return Device(uuid)
 
 
