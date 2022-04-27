@@ -1,7 +1,9 @@
-import re
 import sqlite3
 
 from db.__config import ADMIN
+
+USERNAME='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_'
+PASSWORD='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ '
 
 con=sqlite3.connect(ADMIN)
 cur=con.cursor()
@@ -22,14 +24,10 @@ def add(username:str,password:str)->bool:
         raise ValueError('username is too long')
     if len(password)>40:
         raise ValueError('password is too long')
-    if not all(ord(c)<128 for c in username):
-        raise ValueError('username contains non-ascii characters')
-    if not all(ord(c)<128 for c in password):
-        raise ValueError('password contains non-ascii characters')
-    if not re.match('^\w+$',username):
-        raise ValueError('username is invalid')
-    if not re.match('^\S+$',password):
-        raise ValueError('password is invalid')
+    if not all(c in USERNAME for c in username):
+        raise ValueError('username contains invalid characters')
+    if not all(c in PASSWORD for c in password):
+        raise ValueError('password contains invalid characters')
 
     cur.execute('insert into admin(username,email,password) values(?,?,?)',(username,None,password))
     con.commit()
