@@ -21,7 +21,7 @@ Program v2:         active, des13,  after des11,20220430
 Module Test v2:     active, des14,  after des10,20220430
 Unit Test v2:       active, des15,  after des12,20220430
 Collect:            active, des16,  20220427,   20220430
-Collect Test:       active, des17,  20220428,   20220429
+Collect Test:               des17,  20220428,   20220429
 ```
 
 [Weekly Report](./Weekly%20Report/README.md)
