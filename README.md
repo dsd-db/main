@@ -34,9 +34,6 @@ Python:             done,   des09,  20220419,   20220424
 SQLite:             active, des17,  after des09,20220430
 ```
 
-```mermaid
-```
-
 [Weekly Report](./Weekly%20Report/README.md)
 
 [Meetings](./Meetings/README.md)
