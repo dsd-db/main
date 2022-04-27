@@ -1,0 +1,11 @@
+
+{
+    "files.defaultLanguage": "python",
+    "editor.formatOnType": false,
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.acceptSuggestionOnEnter": "off",
+
+    "code-runner.runInTerminal": true,
+    "code-runner.preserveFocus": false,
+    "code-runner.clearPreviousOutput": false,
+}
