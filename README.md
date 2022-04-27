@@ -1,6 +1,29 @@
 # Happy Family
 
-### Progress
+```mermaid
+gantt
+dateFormat  YYYYMMDD
+title Progress
+
+section Week 1~6
+Roles:              done,   des01,  20220307,   3d
+PingCode:           done,   des02,  20220314,   20220414
+Homepage:           done,   des03,  after des01, 20220414
+Proxy:              active, des04,  20220320,   20220501
+RA:                 done,   des05,  20220323,   20220331
+UserCase:           done,   des06,  20220330,   20220403
+SA:                 done,   des07,  20220413,   20220418
+Interface:          done,   des08,  20220415,   20220419
+TR:                 done,   des09,  20220420,   20220424
+Module Test v1:     done,   des10,  20220421,   20220424
+Program v1:         done,   des11,  20220422,   20220424
+Unit Test v1:       done,   des12,  20220423,   20220424
+Program v2:         active, des13,  after des11,20220430
+Module Test v2:     active, des14,  after des10,20220430
+Unit Test v2:       active, des15,  after des12,20220430
+Collect:            active, des16,  20220427,   20220430
+Collect Test:       active, des17,  20220428,   20220429
+```
 
 [Weekly Report](./Weekly%20Report/README.md)
 
