@@ -1,3 +1,4 @@
+import re
 import sqlite3
 
 from db.__config import ADMIN
@@ -8,24 +9,33 @@ cur.execute('create table if not exists admin(username varchar(64) primary key,e
 con.commit()
 
 def add(username:str,password:str)->bool:
-
-    # if username in admin:
-    #     return False
     cur.execute('select 1 from admin where username=?',(username,))
     s=cur.fetchone()
     if s:
         return False
 
-    # admin[username]=password
+    if not username:
+        raise ValueError('username is empty')
+    if not password:
+        raise ValueError('password is empty')
+    if len(username)>40:
+        raise ValueError('username is too long')
+    if len(password)>40:
+        raise ValueError('password is too long')
+    if not all(ord(c)<128 for c in username):
+        raise ValueError('username contains non-ascii characters')
+    if not all(ord(c)<128 for c in password):
+        raise ValueError('password contains non-ascii characters')
+    if not re.match('^\w+$',username):
+        raise ValueError('username is invalid')
+    if not re.match('^\S+$',password):
+        raise ValueError('password is invalid')
+
     cur.execute('insert into admin(username,email,password) values(?,?,?)',(username,None,password))
-
-    # flushadmin()
     con.commit()
-
     return True
 
 def check(username:str,password:str)->bool:
-    # return username in admin and admin[username]==password
     cur.execute('select password from admin where username=?',(username,))
     s=cur.fetchone()
     if not s or s[0]!=password:
@@ -34,8 +44,5 @@ def check(username:str,password:str)->bool:
         return True
 
 def remove(username:str)->None:
-    # if username in admin:
-    #     del admin[username]
-    #     flushadmin()
     cur.execute('delete from admin where username=?',(username,))
     con.commit()
