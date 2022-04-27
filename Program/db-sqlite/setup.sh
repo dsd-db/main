@@ -1,4 +1,4 @@
-if [ `whoami` != "root" ]; then
+if [ `id -g` != '0' ]; then
     echo "You must be root to run this script."
     exit 1
 fi
@@ -10,6 +10,7 @@ chown -R db /home/db
 
 rm -r ./db.egg-info ./dist
 pip uninstall -y db
+pip install --upgrade build
 python3 -m build
 ls -lah ./dist
 pip install ./dist/db-0.0.3-py3-none-any.whl
