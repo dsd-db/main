@@ -26,4 +26,12 @@ assert d2.calibration==None
 assert d1!=d2
 assert db.device.get(id3)==None
 
+id4=rd('id')+'0'
+try:
+    db.device.get(id4,True)
+except ValueError:
+    pass
+else:
+    assert ValueError==None
+
 print('OK')

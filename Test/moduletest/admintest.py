@@ -30,4 +30,19 @@ db.admin.remove('a3')
 db.admin.remove('a4')
 db.admin.remove('a5')
 
+def f(username,password):
+    try:
+        db.admin.add(username,password)
+    except ValueError:
+        pass
+    else:
+        assert ValueError==None
+
+f('admin','')
+f('','123456')
+f('admin','\n')
+f('.','123456')
+f('admin','a'*99)
+f('a'*99,'123456')
+
 print('OK')

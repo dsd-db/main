@@ -37,7 +37,7 @@ def r()->str:
 
 def rd(x:str=None)->str:
     if x=='id' or x=='uuid':
-        s=uuid.uuid4().hex
+        s=str(uuid.uuid4())
     elif x=='email' or x=='mail':
         s=r()+'@gov.cn'
     elif x=='mdl' or x=='model':

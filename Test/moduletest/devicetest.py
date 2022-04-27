@@ -125,4 +125,12 @@ assert db.device.get(id3)==None
 
 assert db.device.get(id1,True)!=None
 
+id4=rd('id')+'0'
+try:
+    db.device.get(id4,True)
+except ValueError:
+    pass
+else:
+    assert ValueError==None
+
 print('OK')
