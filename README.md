@@ -2,10 +2,9 @@
 
 ```mermaid
 gantt
-dateFormat  YYYYMMDD
+dateFormat YYYYMMDD
 title Progress
 
-section Week 1~6
 Roles:              done,   des01,  20220307,   3d
 PingCode:           done,   des02,  20220314,   20220414
 Homepage:           done,   des03,  after des01, 20220414
