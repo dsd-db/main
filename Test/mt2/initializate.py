@@ -1,4 +1,5 @@
 import os
+import uuid
 import shutil
 import random
 
@@ -36,7 +37,7 @@ def r()->str:
 
 def rd(x:str=None)->str:
     if x=='id' or x=='uuid':
-        s=r()
+        s=uuid.uuid4().hex
     elif x=='email' or x=='mail':
         s=r()+'@gov.cn'
     elif x=='mdl' or x=='model':
