@@ -51,3 +51,16 @@ def rd(x:str=None)->str:
             with open(os.path.join(s,'%d.csv'%i),'w') as f:
                 f.write('%s,%d\n'%(s,i))
     return s
+
+def g(s,c=-1):
+    l=len(s)
+    if c==-1:
+        if l<=1:
+            return ''
+        n=random.randint(0,l-1)
+        return s[:n]+s[n+1:]
+    else:
+        if l<1:
+            return c
+        n=random.randint(0,l)
+        return s[:n]+c+s[n:]

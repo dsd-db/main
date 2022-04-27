@@ -2,7 +2,7 @@ import os
 import sys
 import random
 
-from initializate import r,rd
+from initializate import r,rd,g
 import db
 
 if len(sys.argv)==1:
@@ -20,19 +20,6 @@ def f(username,password):
     else:
         print(repr(username),repr(password))
         assert ValueError==None
-
-def g(s,c=-1):
-    l=len(s)
-    if c==-1:
-        if l<=1:
-            return ''
-        n=random.randint(0,l-1)
-        return s[:n]+s[n+1:]
-    else:
-        if l<1:
-            return c
-        n=random.randint(0,l)
-        return s[:n]+c+s[n:]
 
 for _ in range(COUNT):
     if not _&255:
