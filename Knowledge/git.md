@@ -45,6 +45,13 @@ ssh -T git@liyu.utad.pt
 ```
 Welcome to GitLab, @elaina!
 
+#### git config
+
+```sh
+git config --global user.email "userelaina@pm.me"
+git config --global user.name "Elaina"
+```
+
 #### git clone
 
 ```sh
