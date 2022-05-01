@@ -44,12 +44,11 @@ assert os.listdir(c2)
 assert os.listdir(c3)
 
 assert d1.calibration==r_c1
-
 assert os.listdir(r_c1)
 assert os.listdir(r_c2)
 
 db.device.remove(id1)
-assert os.listdir(r_c1)
+assert not os.path.exists(r_c1)
 assert os.listdir(r_c2)
 
 print('OK')

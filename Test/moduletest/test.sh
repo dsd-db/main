@@ -1,6 +1,10 @@
-useradd db_tmp
-sudo -u db_tmp python3 admintest.py
-sudo -u db_tmp python3 devicetest.py
-sudo -u db_tmp python3 modeltest.py
-rm -r ./__pycache__
-sudo -u db_tmp rm -r ~/tmp
+if [ $# -lt 1 ] ; then
+    str='db_tmp'
+else
+    str=$1
+fi
+../before.sh $str
+sudo -u $str python3 admintest.py
+sudo -u $str python3 devicetest.py
+sudo -u $str python3 modeltest.py
+../after.sh $str

@@ -53,27 +53,27 @@ class Device:
 
     @property
     def banned(self)->bool:
-        cur.execute('select banned from device where uuid=?',(self.uuid,))
+        cur.execute('select banned from device where uuid=?',(self._id,))
         return cur.fetchone()[0]
     
     @banned.setter
     def banned(self,value:bool)->None:
-        cur.execute('update device set banned=? where uuid=?',(value,self.uuid))
+        cur.execute('update device set banned=? where uuid=?',(value,self._id))
         con.commit()
 
     @property
     def email(self)->str:
-        cur.execute('select email from device where uuid=?',(self.uuid,))
+        cur.execute('select email from device where uuid=?',(self._id,))
         return cur.fetchone()[0]
 
     @email.setter
     def email(self,value:str)->None:
-        cur.execute('update device set email=? where uuid=?',(value,self.uuid))
+        cur.execute('update device set email=? where uuid=?',(value,self._id))
         con.commit()
 
     @property
     def model(self)->str:
-        cur.execute('select model from device where uuid=?',(self.uuid,))
+        cur.execute('select model from device where uuid=?',(self._id,))
         s=cur.fetchone()[0]
         if os.path.exists(s):
             return s
@@ -82,14 +82,14 @@ class Device:
 
     @model.setter
     def model(self,value:str)->None:
-        cur.execute('select model from device where uuid=?',(self.uuid,))
+        cur.execute('select model from device where uuid=?',(self._id,))
         s=cur.fetchone()[0]
         shutil.copyfile(value,s)
 
 
     @property
     def calibration(self)->str:
-        cur.execute('select calibration from device where uuid=?',(self.uuid,))
+        cur.execute('select calibration from device where uuid=?',(self._id,))
         s=cur.fetchone()[0]
         if os.listdir(s):
             return s
@@ -98,6 +98,6 @@ class Device:
 
     @calibration.setter
     def calibration(self,value:str)->None:
-        cur.execute('select calibration from device where uuid=?',(self.uuid,))
+        cur.execute('select calibration from device where uuid=?',(self._id,))
         s=cur.fetchone()[0]
         shutil.copytree(value,s,dirs_exist_ok=True)

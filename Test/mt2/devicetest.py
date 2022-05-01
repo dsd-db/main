@@ -67,7 +67,7 @@ for _ in range(COUNT):
             id=g(rd('id'),random.choice('0123456789abcdef'))
             f(id)
         elif j==2 or j==3: # db.device.get(id_with_illegal_char)
-            id=g(g(rd('id')),random.choice('ghijklmnopqrstuvwxyzGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*,./:;<=>?@[\\]^`{|}~'))
+            id=g(g(rd('id')),random.choice('ghijklmnopqrstuvwxyzGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*,./:;<=>?@[\\]^`|~'))
             f(id)
         elif j==4: # db.device.get('')
             id=''

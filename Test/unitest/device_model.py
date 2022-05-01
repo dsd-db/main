@@ -49,7 +49,7 @@ assert os.path.exists(r_m1)
 assert os.path.exists(r_m2)
 
 db.device.remove(id1)
-assert os.path.exists(r_m1)
+assert not os.path.exists(r_m1)
 assert os.path.exists(r_m2)
 
 print('OK')
