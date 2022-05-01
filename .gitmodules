@@ -1,0 +1,3 @@
+[submodule "Program/db-sqlite/db"]
+	path = Program/db-sqlite/db
+	url = git@liyu.utad.pt:happy-family/db.git
