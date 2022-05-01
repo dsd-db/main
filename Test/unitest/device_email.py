@@ -1,7 +1,7 @@
 import os
 
-from initializate import rd
 import db
+from initializate import rd
 
 id1=rd('id')
 id2=rd('id')

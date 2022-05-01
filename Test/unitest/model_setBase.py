@@ -1,7 +1,7 @@
 import os
 
-from initializate import rd
 import db
+from initializate import rd
 
 b2=rd('mdl')
 assert os.path.exists(b2)

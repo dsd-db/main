@@ -1,7 +1,7 @@
 import os
 
-from initializate import rd
 import db
+from initializate import rd
 
 id1=rd('id')
 id2=rd('id')
@@ -23,7 +23,7 @@ assert os.listdir(c3)
 
 d1.calibration=c1
 assert d2.calibration==None
-assert not os.path.exists(c1)
+assert os.listdir(c1)
 assert os.listdir(c2)
 assert os.listdir(c3)
 
@@ -31,17 +31,17 @@ r_c1=d1.calibration
 assert os.listdir(r_c1)
 
 d2.calibration=c2
-assert not os.path.exists(c1)
-assert not os.path.exists(c2)
+assert os.listdir(c1)
+assert os.listdir(c2)
 assert os.listdir(c3)
 
 r_c2=d2.calibration
 assert os.listdir(r_c2)
 
 d1.calibration=c3
-assert not os.path.exists(c1)
-assert not os.path.exists(c2)
-assert not os.path.exists(c3)
+assert os.listdir(c1)
+assert os.listdir(c2)
+assert os.listdir(c3)
 
 assert d1.calibration==r_c1
 
@@ -49,7 +49,7 @@ assert os.listdir(r_c1)
 assert os.listdir(r_c2)
 
 db.device.remove(id1)
-assert not os.path.exists(r_c1)
+assert os.listdir(r_c1)
 assert os.listdir(r_c2)
 
 print('OK')

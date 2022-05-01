@@ -1,5 +1,8 @@
-import initializate
 import db
+from initializate import DEFAULT_USERNAME,DEFAULT_PASSWORD
+
+assert db.admin.add(DEFAULT_USERNAME,DEFAULT_PASSWORD)==False
+assert db.admin.add(DEFAULT_USERNAME,'qwq')==False
 
 assert db.admin.add('admin','123456')==True
 assert db.admin.add('admin','123456')==False
