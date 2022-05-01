@@ -22,7 +22,8 @@ DB_DEVICE='device.db'
 DB_DEVICE=os.path.join(DIR,DB_DEVICE)
 
 os.makedirs(DEVICE,exist_ok=True)
-open(BASE,'w').close()
+if not os.path.exists(BASE):
+    open(BASE,'w').close()
 
 if __name__=='__main__':
     print(DIR)
