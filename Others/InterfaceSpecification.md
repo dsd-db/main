@@ -1,5 +1,7 @@
 # Interface Specification
 
+[toc]
+
 ## Server calls Algorithm 
 
 **On the embedded platform**, the server module calls the algorithm module to predict the user's motion. On the both platform, use process calls directly for more flexibility.
@@ -71,7 +73,7 @@ Returns `None` always.
 ### `db.device`
 
 ```
-db.device.get(uuid: str, create: bool=False)-> db.device.Device
+db.device.get(uuid: str|uuid.UUID, create: bool=True)-> db.device.Device
 ```
 
 Get the `db.device.Device` object of the device with a specified UUID. The UUID must be a valid UUIDv4.
@@ -81,7 +83,7 @@ If the `create` is set to `True`, the device entry is created and returned if no
 Returns a `db.device.Device` instance if the device is found or created, `None` otherwise.
 
 ```
-db.device.remove(uuid: str)-> None
+db.device.remove(uuid: str|uuid.UUID)-> None
 ```
 
 Delete everything about the device with the specified UUID.
@@ -89,6 +91,14 @@ Delete everything about the device with the specified UUID.
 Returns `None` always.
 
 ### `db.device.Device`
+
+```
+db.device.Device.id: uuid.UUID
+```
+
+The UUID of the device.
+
+Read only property.
 
 ```
 db.device.Device.banned: bool
@@ -283,7 +293,7 @@ Returns 200 always.
 
 #### Restricted Device Management
 
-First, several device management APIs are available to administrators only. Please note that the API above are also available to administrators without a device ticket.
+First, several device management APIs are available to administrators only. Please note that the API above are also available to administrators without a device ticket or signature.
 
 ```
 GET /device/<uuid>/calibration
@@ -349,6 +359,8 @@ DELETE /session
 ```
 
 Returns 200 always.
+
+Access administrator APIs with device ticket will get a 403. 
 
 #### Base Model Management
 

@@ -5,7 +5,7 @@ from db.__config import ADMIN
 USERNAME='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_'
 PASSWORD='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ '
 
-con=sqlite3.connect(ADMIN)
+con=sqlite3.connect(ADMIN,check_same_thread=False)
 cur=con.cursor()
 cur.execute('create table if not exists admin(username varchar(64) primary key,email varchar(1024),password varchar(1024))')
 con.commit()
@@ -32,6 +32,8 @@ def add(username:str,password:str)->bool:
     cur.execute('insert into admin(username,email,password) values(?,?,?)',(username,None,password))
     con.commit()
     return True
+
+add('testadmin','testpwd114514@')
 
 def check(username:str,password:str)->bool:
     cur.execute('select password from admin where username=?',(username,))

@@ -4,13 +4,15 @@ import sqlite3
 from uuid import UUID
 
 from db.__config import DEVICE,MODEL,CALIBRATION
-con=sqlite3.connect(DEVICE)
+con=sqlite3.connect(DEVICE,check_same_thread=False)
 cur=con.cursor()
 cur.execute('create table if not exists device(uuid varchar(64) primary key,banned boolean,email varchar(1024),model varchar(1024),calibration varchar(1024))')
 con.commit()
 
 
-def get(uuid:str,create:bool=False):
+def get(uuid:str,create:bool=True):
+    uuid=str(uuid)
+    UUID(uuid,version=4)
     cur.execute('select banned,email,model,calibration from device where uuid=?',(uuid,))
     info=cur.fetchone()
 
@@ -23,13 +25,14 @@ def get(uuid:str,create:bool=False):
         os.makedirs(_calibration)
 
     if info:
-        UUID(uuid,version=4)
         return Device(uuid)
     # else:
     #     return None
 
 
 def remove(uuid:str)->None:
+    uuid=str(uuid)
+    UUID(uuid,version=4)
     cur.execute('delete from device where uuid=?',(uuid,))
     _dir=os.path.dirname(CALIBRATION%uuid)
     if os.path.exists(_dir):
@@ -42,7 +45,11 @@ class Device:
         self,
         uuid:str
     )->None:
-        self.uuid=uuid
+        self._id=uuid
+
+    @property
+    def id(self):
+        return UUID(self._id,version=4)
 
     @property
     def banned(self)->bool:
@@ -77,7 +84,7 @@ class Device:
     def model(self,value:str)->None:
         cur.execute('select model from device where uuid=?',(self.uuid,))
         s=cur.fetchone()[0]
-        os.rename(value,s)
+        shutil.copyfile(value,s)
 
 
     @property
@@ -93,5 +100,4 @@ class Device:
     def calibration(self,value:str)->None:
         cur.execute('select calibration from device where uuid=?',(self.uuid,))
         s=cur.fetchone()[0]
-        shutil.rmtree(s)
-        os.rename(value,s)
+        shutil.copytree(value,s,dirs_exist_ok=True)
