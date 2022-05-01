@@ -1,17 +1,12 @@
 import os
-import pandas as pd
-DIR='~/collect'
-DIR=os.path.abspath(os.path.expanduser(DIR))
-if not os.path.exists(DIR):
-    DIR='./'
-    DIR=os.path.abspath(DIR)
-NAME='1'
-XLSX=os.path.join(DIR,'%s.xlsx'%NAME)
-CONF=os.path.join(DIR,'%s.conf'%NAME)
+import time
+DIR=os.path.abspath(os.path.dirname(__file__))
+CSV=os.path.join(DIR,'1.csv')
 
-data=pd.ExcelFile(XLSX).parse('Sheet1')
+data=open(CSV,'r').read().split('\n')
 n=len(data)
-i=int(open(CONF,'r').read())
-open(CONF,'w').write(str((i+1)%n))
-ans=[str(i) for i in data.iloc[i]]
-print(','.join(ans))
+i=0
+while True:
+    print(data[i],flush=True)
+    i=(i+1)%n
+    time.sleep(1/20)
