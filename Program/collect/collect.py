@@ -2,6 +2,9 @@ import os
 import pandas as pd
 DIR='~/collect'
 DIR=os.path.abspath(os.path.expanduser(DIR))
+if not os.path.exists(DIR):
+    DIR='./'
+    DIR=os.path.abspath(DIR)
 NAME='1'
 XLSX=os.path.join(DIR,'%s.xlsx'%NAME)
 CONF=os.path.join(DIR,'%s.conf'%NAME)
