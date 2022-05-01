@@ -1,4 +1,4 @@
-spip uninstall -y db
+pip uninstall -y db
 pip install --upgrade build
 python3 -m build
 ls -lah ./dist

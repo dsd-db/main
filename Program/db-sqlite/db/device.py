@@ -3,8 +3,8 @@ import shutil
 import sqlite3
 from uuid import UUID
 
-from db.__config import DEVICE,MODEL,CALIBRATION
-con=sqlite3.connect(DEVICE,check_same_thread=False)
+from db.__config import DB_DEVICE,MODEL,CALIBRATION
+con=sqlite3.connect(DB_DEVICE,check_same_thread=False)
 cur=con.cursor()
 cur.execute('create table if not exists device(uuid varchar(64) primary key,banned boolean,email varchar(1024),model varchar(1024),calibration varchar(1024))')
 con.commit()

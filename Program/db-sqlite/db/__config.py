@@ -6,29 +6,29 @@ DIR=os.path.abspath(os.path.expanduser(DIR))
 BASE='base.mdl'
 BASE=os.path.join(DIR,BASE)
 
-_DEVICE='device'
-_DEVICE=os.path.join(DIR,_DEVICE)
-
-MODEL='device.mdl'
-MODEL=os.path.join(_DEVICE,'%s',MODEL)
-
-CALIBRATION='calibration'
-CALIBRATION=os.path.join(_DEVICE,'%s',CALIBRATION)
-
-ADMIN='admin.db'
-ADMIN=os.path.join(DIR,ADMIN)
-
-DEVICE='device.db'
+DEVICE='device'
 DEVICE=os.path.join(DIR,DEVICE)
 
-os.makedirs(_DEVICE,exist_ok=True)
+MODEL='device.mdl'
+MODEL=os.path.join(DEVICE,'%s',MODEL)
+
+CALIBRATION='calibration'
+CALIBRATION=os.path.join(DEVICE,'%s',CALIBRATION)
+
+DB_ADMIN='admin.db'
+DB_ADMIN=os.path.join(DIR,DB_ADMIN)
+
+DB_DEVICE='device.db'
+DB_DEVICE=os.path.join(DIR,DB_DEVICE)
+
+os.makedirs(DEVICE,exist_ok=True)
 open(BASE,'w').close()
 
 if __name__=='__main__':
     print(DIR)
     print(BASE)
-    print(_DEVICE)
+    print(DEVICE)
     print(MODEL)
     print(CALIBRATION)
-    print(ADMIN)
-    print(DEVICE)
+    print(DB_ADMIN)
+    print(DB_DEVICE)

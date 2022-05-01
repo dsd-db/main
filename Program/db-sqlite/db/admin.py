@@ -1,11 +1,11 @@
 import sqlite3
 
-from db.__config import ADMIN
+from db.__config import DB_ADMIN
 
 USERNAME='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_'
 PASSWORD='0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~ '
 
-con=sqlite3.connect(ADMIN,check_same_thread=False)
+con=sqlite3.connect(DB_ADMIN,check_same_thread=False)
 cur=con.cursor()
 cur.execute('create table if not exists admin(username varchar(64) primary key,email varchar(1024),password varchar(1024))')
 con.commit()
