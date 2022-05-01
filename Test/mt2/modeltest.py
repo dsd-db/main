@@ -10,6 +10,8 @@ if len(sys.argv)==1:
 else:
     COUNT=int(sys.argv[1])
 
+a=open(BASE,'rb').read()
+
 for _ in range(COUNT):
     if not _&255:
         print('db.model',_)
@@ -17,13 +19,13 @@ for _ in range(COUNT):
     if i==0:
         b=db.model.getBase()
         assert b==BASE
-        assert os.path.exists(BASE)
+        assert a==open(BASE,'rb').read()
     else:
         b=rd('mdl')
+        assert a!=open(b,'rb').read()
+        a=open(b,'rb').read()
         assert b!=BASE
-        assert os.path.exists(b)
         db.model.setBase(b)
-        assert os.path.exists(b)
         assert os.path.exists(BASE)
 
 print('OK')
