@@ -5,6 +5,8 @@ import random
 
 # N=10000000
 N=65536
+DEFAULT_USERNAME='testadmin'
+DEFAULT_PASSWORD='testpwd114514@'
 
 TMP='~/tmp'
 TMP=os.path.abspath(os.path.expanduser(TMP))
@@ -20,12 +22,6 @@ BASE=os.path.join(DIR,BASE)
 
 DEVICE='device'
 DEVICE=os.path.join(DIR,DEVICE)
-
-# MODEL='device.mdl'
-# MODEL=os.path.join(DEVICE,'%s',MODEL)
-
-# CALIBRATION='calibration'
-# CALIBRATION=os.path.join(DEVICE,'%s',CALIBRATION)
 
 _set=set()
 def r()->str:

@@ -2,8 +2,8 @@ import os
 import sys
 import random
 
-from initializate import rd,BASE
 import db
+from initializate import rd,BASE
 
 if len(sys.argv)==1:
     COUNT=128
@@ -23,7 +23,7 @@ for _ in range(COUNT):
         assert b!=BASE
         assert os.path.exists(b)
         db.model.setBase(b)
-        assert not os.path.exists(b)
+        assert os.path.exists(b)
         assert os.path.exists(BASE)
 
 print('OK')

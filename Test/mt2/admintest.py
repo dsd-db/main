@@ -2,8 +2,8 @@ import os
 import sys
 import random
 
-from initializate import r,rd,g
 import db
+from initializate import r,rd,g
 
 if len(sys.argv)==1:
     COUNT=1024

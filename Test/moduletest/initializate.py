@@ -5,6 +5,8 @@ import random
 
 # N=10000000
 N=65536
+DEFAULT_USERNAME='testadmin'
+DEFAULT_PASSWORD='testpwd114514@'
 
 TMP='~/tmp'
 TMP=os.path.abspath(os.path.expanduser(TMP))
