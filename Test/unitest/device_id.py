@@ -7,16 +7,12 @@ from initializate import rd
 id1=rd('id')
 id2=rd('id')
 assert id1!=id2
-uuid1=UUID(id1,version=4)
-uuid2=UUID(id2,version=4)
 
 d1=db.device.get(id1,True)
-assert uuid1.hex==d1.id.hex
-assert str(uuid1)==str(d1.id)
+assert id1==d1.id.hex
 
 d2=db.device.get(id2,True)
-assert uuid2.hex==d2.id.hex
-assert str(uuid2)==str(d2.id)
+assert id2==d2.id.hex
 
 try:
     d1.id=''

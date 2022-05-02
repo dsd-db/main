@@ -5,8 +5,6 @@ import random
 
 # N=10000000
 N=65536
-DEFAULT_USERNAME='testadmin'
-DEFAULT_PASSWORD='testpwd114514@'
 
 TMP='~/tmp'
 TMP=os.path.abspath(os.path.expanduser(TMP))
@@ -23,6 +21,9 @@ BASE=os.path.join(DIR,BASE)
 DEVICE='device'
 DEVICE=os.path.join(DIR,DEVICE)
 
+DEFAULT_USERNAME='testadmin'
+DEFAULT_PASSWORD='testpwd114514@'
+
 _set=set()
 def r()->str:
     i=random.randint(1,N)
@@ -33,7 +34,7 @@ def r()->str:
 
 def rd(x:str=None)->str:
     if x=='id' or x=='uuid':
-        s=str(uuid.uuid4())
+        s=uuid.uuid4().hex
     elif x=='email' or x=='mail':
         s=r()+'@gov.cn'
     elif x=='mdl' or x=='model':
@@ -47,6 +48,7 @@ def rd(x:str=None)->str:
             with open(os.path.join(s,'%d.csv'%i),'w') as f:
                 f.write('%s,%d\n'%(s,i))
     return s
+
 
 def g(s,c=-1):
     l=len(s)

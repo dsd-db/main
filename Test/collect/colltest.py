@@ -1,27 +1,22 @@
-from distutils.cmd import Command
-from gc import collect
 import sys
+import time
 import shlex
 import subprocess
 
-COUNT=64
+COUNT=512
 
-command='sudo -u db python3 "%s"'%sys.argv[1]
+command='python3 "%s"'%sys.argv[1]
 print(command)
 command=shlex.split(command)
+s=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
 
 for _ in range(COUNT):
-    if not _&7:
+    if not _&31:
         print('colltest',_)
-    s=subprocess.Popen(command,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
-    out=s.stdout.read()
-    err=s.stderr.read()
-    if err:
-        print(err.decode('utf8'))
-        print('ERROR')
-        sys.exit(1)
-    else:
-        l=[float(i) for i in out.decode('utf8').split(',')]
-        assert len(l)==90
+    out=s.stdout.readline().decode('utf8')
+    # print(repr(out))
+    # time.sleep(1/20)
+    l=[float(i) for i in out.split(',')]
+    assert len(l)==90
 
 print('OK')

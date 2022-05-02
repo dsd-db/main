@@ -52,4 +52,8 @@ db.device.remove(id1)
 assert not os.path.exists(r_m1)
 assert os.path.exists(r_m2)
 
+d2.model=None
+assert d2.model==None
+assert not os.path.exists(r_m2)
+
 print('OK')

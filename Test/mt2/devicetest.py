@@ -16,11 +16,10 @@ a=dict()
 def f(uuid):
     try:
         db.device.get(uuid,True)
+        print(repr(uuid))
+        assert False
     except ValueError:
         pass
-    else:
-        print(repr(uuid))
-        assert ValueError==None
 
 for _ in range(COUNT):
     if not _&255:

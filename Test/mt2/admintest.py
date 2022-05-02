@@ -15,11 +15,10 @@ a=dict()
 def f(username,password):
     try:
         db.admin.add(username,password)
+        print(repr(username),repr(password))
+        assert False
     except ValueError:
         pass
-    else:
-        print(repr(username),repr(password))
-        assert ValueError==None
 
 for _ in range(COUNT):
     if not _&255:

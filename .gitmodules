@@ -1,6 +1,8 @@
 [submodule "Program/db-sqlite/db"]
 	path = Program/db-sqlite/db
 	url = git@liyu.utad.pt:happy-family/db.git
+	branch = main
 [submodule "Program/collect"]
 	path = Program/collect
 	url = git@liyu.utad.pt:happy-family/collect.git
+	branch = main

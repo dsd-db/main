@@ -30,4 +30,10 @@ d1.email=e3
 assert d1.email==e3
 assert d2.email==e2
 
+try:
+    d1.email='a'*254+'@t.me'
+    assert False
+except ValueError:
+    pass
+
 print('OK')

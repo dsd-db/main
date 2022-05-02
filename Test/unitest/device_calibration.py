@@ -51,4 +51,8 @@ db.device.remove(id1)
 assert not os.path.exists(r_c1)
 assert os.listdir(r_c2)
 
+d2.calibration=None
+assert d2.calibration==None
+assert not os.path.exists(r_c2)
+
 print('OK')
