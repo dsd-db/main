@@ -3,5 +3,5 @@ if [ `id -g` != '0' ]; then
     exit 1
 fi
 rm -r ./*/__pycache__
-rm -r /home/$1
+# rm -r /home/$1
 userdel $1
