@@ -67,3 +67,10 @@ git commit -am 'update README.md'
 git push
 ```
 
+#### git submodule
+
+```sh
+git submodule add git@liyu.utad.pt:happy-family/db.git
+git submodule add git@liyu.utad.pt:happy-family/collect.git
+git submodule update --remote
+```

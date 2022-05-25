@@ -5,7 +5,7 @@ r=lambda x:open(os.path.join(os.path.abspath(os.path.dirname(__file__)),x),'r').
 
 setuptools.setup(
     name='db',
-    version='0.0.5',
+    version='2.0.1',
     description='Database - Happy Family.',
     py_modules=['db'],
     packages=setuptools.find_packages(),
