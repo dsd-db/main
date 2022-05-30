@@ -55,7 +55,7 @@ git config --global user.name "Elaina"
 #### git clone
 
 ```sh
-git clone git@liyu.utad.pt:happy-family/main.git
+git clone --recurse-submodules --remote-submodule git@liyu.utad.pt:happy-family/main.git
 ```
 If this is your first time linking, you may need to enter `yes`.
 
@@ -72,5 +72,6 @@ git push
 ```sh
 git submodule add git@liyu.utad.pt:happy-family/db.git
 git submodule add git@liyu.utad.pt:happy-family/collect.git
+pip install -r collect/requirements.txt
 git submodule update --remote
 ```
