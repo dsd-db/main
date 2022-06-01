@@ -14,7 +14,6 @@ for _ in range(COUNT):
     out=s.stdout.readline().decode('utf8')
     # print(repr(out))
     # time.sleep(1/20)
-    print(out)
     l=[float(i) for i in out.split(',')]
     assert len(l)==45
     if not _&31:
