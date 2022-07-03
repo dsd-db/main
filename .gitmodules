@@ -6,3 +6,6 @@
 	path = Program/db-collect/collect
 	url = org-106581657@github.com:dsd-db/collect.git
 	branch = main
+[submodule "Program/db-collect/collect-w2l-windows"]
+	path = Program/db-collect/collect-w2l-windows
+	url = org-106581657@github.com:dsd-db/collect-w2l-windows.git

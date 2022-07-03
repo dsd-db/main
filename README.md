@@ -13,15 +13,19 @@ UserCase:           done,   des06,  20220330,   20220403
 SA:                 done,   des07,  20220413,   20220418
 Interface:          done,   des08,  20220415,   20220419
 TR:                 done,   des10,  20220420,   20220424
-Program v1:         done,   des11,  20220422,   20220424
+ v1:         done,   des11,  20220422,   20220424
 Module Test v1:     done,   des12,  20220421,   20220424
 Unit Test v1:       done,   des13,  20220423,   20220424
-Program v2:         active, des14,  after des11,20220430
-Module Test v2:     active, des15,  after des12,20220430
-Unit Test v2:       active, des16,  after des13,20220430
-Collect:            active, des18,  20220427,   20220430
-Collect Test:               des19,  20220428,   20220429
-Integration:                des20,  after des14,20220503
+Program v1.1:       active, des14,  after des11,20220430
+Module Test v1.1:     active, des15,  after des12,20220430
+Unit Test v1.1:       active, des16,  after des13,20220430
+Collect v1:            active, des18,  20220427,   20220430
+Collect Test v1:               des19,  20220428,   20220429
+Integration v1:                des20,  after des14,20220503
+Program v2:                    des21,  20220512,20220516
+Collect v2:                des20,  20220512,20220524
+Test v2:                des20,  20220512,20220524
+Integration v2:                des20,  20220519,20220524
 ```
 
 ```mermaid

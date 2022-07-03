@@ -6,5 +6,4 @@ fi
 ./before.sh $str
 sudo -u $str python3 ./moduletest/admintest.py
 sudo -u $str python3 ./moduletest/devicetest.py
-sudo -u $str python3 ./moduletest/modeltest.py
 ./after.sh $str
